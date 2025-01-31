@@ -330,8 +330,8 @@ def update_scm_url(scm_type, url, username=True, password=True, check_special_ca
     # Special handling for github/bitbucket SSH URLs.
     if check_special_cases:
         special_git_hosts = ('github.com', 'bitbucket.org', 'altssh.bitbucket.org')
-        if scm_type == 'git' and parts.scheme.endswith('ssh') and parts.hostname in special_git_hosts and netloc_username != 'git':
-            raise ValueError(_('Username must be "git" for SSH access to %s.') % parts.hostname)
+        # if scm_type == 'git' and parts.scheme.endswith('ssh') and parts.hostname in special_git_hosts and netloc_username != 'git':
+            # raise ValueError(_('Username must be "git" for SSH access to %s.') % parts.hostname)
         if scm_type == 'git' and parts.scheme.endswith('ssh') and parts.hostname in special_git_hosts and netloc_password:
             # raise ValueError('Password not allowed for SSH access to %s.' % parts.hostname)
             netloc_password = ''

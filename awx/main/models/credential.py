@@ -645,6 +645,10 @@ class CredentialInputSource(PrimordialModel):
         return reverse(view_name, kwargs={'pk': self.pk}, request=request)
 
 
+def detect_server_product_name():
+    
+    return 'NOT_AWX'
+
 def load_credentials():
 
     awx_entry_points = {ep.name: ep for ep in entry_points(group='awx_plugins.managed_credentials')}
