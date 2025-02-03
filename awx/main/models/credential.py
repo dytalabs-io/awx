@@ -645,6 +645,12 @@ class CredentialInputSource(PrimordialModel):
         return reverse(view_name, kwargs={'pk': self.pk}, request=request)
 
 
+# temporary so we can test the load_credentials function for github apps.
+def detect_server_product_name():
+
+    return 'NOT_AWX'
+
+
 def load_credentials():
 
     awx_entry_points = {ep.name: ep for ep in entry_points(group='awx_plugins.managed_credentials')}

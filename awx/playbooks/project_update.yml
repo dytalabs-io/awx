@@ -43,6 +43,9 @@
       tags:
         - update_git
       block:
+        - debug:
+            msg: "Updating project using git {{ scm_url }}"
+
         - name: Update project using git
           ansible.builtin.git:
             dest: "{{ project_path | quote }}"
