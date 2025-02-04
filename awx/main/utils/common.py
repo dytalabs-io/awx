@@ -327,9 +327,6 @@ def update_scm_url(scm_type, url, username=True, password=True, check_special_ca
     else:
         netloc_password = ''
 
-        if scm_type == 'git' and parts.scheme.endswith('ssh') and parts.hostname in special_git_hosts and netloc_username not in allowed_usernames:
-            raise ValueError(_('Username must be "git" or a valid GitHub App username for SSH access to %s.') % parts.hostname)
-
     # Special handling for github/bitbucket SSH URLs.
     if check_special_cases:
         special_hosts = ('github.com', 'bitbucket.org', 'altssh.bitbucket.org')
